@@ -8,6 +8,10 @@ export class LogController {
 
  @Get('login')
   public async login(@Query() query: User ) {
-    return this.service.compareUserPass(query);
+    if (await this.service.compareUserPass(query)) {
+      return this.service.login(query)
+    }
+    
+    return 'fail'
   }
 }
