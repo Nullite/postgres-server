@@ -7,11 +7,11 @@ import { LoggingModule } from './logging/logging.module';
 @Module({
   imports: [ TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
-      port: 5432,
+      host: process.env.HOST,
+      port: parseInt(process.env.PORT),
       username: 'postgres',
-      password: 'postgres',
-      database: 'postgres',
+      password: process.env.PASSWORD,
+      database: process.env.DATABASE,
      }), 
      LoggingModule,],
   controllers: [AppController],

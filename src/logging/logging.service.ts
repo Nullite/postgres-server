@@ -11,7 +11,6 @@ export class logService {
         const compare: User = await this.repository.getUser(query.login)
 
         if (compare && query.password === compare.password) {
-            console.log(compare, query)
             return true
         }
         return false
